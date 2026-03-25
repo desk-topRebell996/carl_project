@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Carousel from "./Carousel";
 import Footer from "./Footer";
 const GetProduct = () => {
+    // Search bar
+    
     // hooks
     const [products, setProducts] = useState([]) //empty array .. to handle the data from the backend
     const [loading, setLoading] = useState("")
@@ -34,6 +36,7 @@ const GetProduct = () => {
         <div className="row">
             <div>
                 <Carousel/>
+               
             </div>
             <h3 className="display-4 mt-3">Source Products</h3>
             {loading}

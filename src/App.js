@@ -18,8 +18,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <header className="App-header bg-secondary">
-          <h1 className='line_header display-3 p-2 text-center fw-bold text-light '>Carl_Project</h1>
+        <header className="App-header">
+          <img src="/img/banner2.png" style={{
+          width: '100%',
+          height: '20Vh',
+          objectFit: 'cover'
+        }} />
         </header>
         <NavBar /> {/* We create navigation to the routes */}
 
