@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const Carousel = () => {
+
     const slides = [
         { id: 1, url: "/img/store.jpeg", title: "Slide 1" },
         { id: 2, url: "/img/store2.jpeg", title: "Slide 2" },
@@ -23,7 +24,7 @@ const Carousel = () => {
         );
     };
 
-    // AUTO SLIDE
+    // AUTO SLIDE (FIXED FOR VERCEL BUILD)
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex(
@@ -32,7 +33,7 @@ const Carousel = () => {
         }, 4000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [slides.length]);
 
     return (
         <div style={carouselContainer}>
@@ -68,27 +69,25 @@ const Carousel = () => {
     );
 };
 
-/* ✅ FIXED LAYOUT */
+/* ✅ STYLES */
 const carouselContainer = {
     position: "relative",
     width: "100%",
     maxWidth: "1000px",
-    margin: "10px auto", // 🔥 reduced spacing
+    margin: "10px auto",
     overflow: "hidden",
     borderRadius: "14px",
     boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
 };
 
-/* 🔥 SMALLER HEIGHT */
 const slideImage = {
     width: "100%",
-    height: "240px", // 🔥 main fix
+    height: "240px",
     objectFit: "cover",
     display: "block",
     borderRadius: "14px",
 };
 
-/* BUTTONS */
 const buttonBase = {
     position: "absolute",
     top: "50%",
@@ -113,7 +112,6 @@ const nextButton = {
     right: "10px",
 };
 
-/* INDICATORS */
 const indicatorsContainer = {
     textAlign: "center",
     marginTop: "6px",
