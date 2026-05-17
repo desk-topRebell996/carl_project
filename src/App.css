@@ -1,0 +1,304 @@
+/* =========================
+   🌄 GLOBAL BACKGROUND (FIXED - NO IMAGES)
+========================= */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Light Mode Background */
+.app-bg {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #e0f2fe,
+    #f8fafc,
+    #e2e8f0
+  );
+  transition: 0.4s ease;
+}
+
+/* Dark Mode Background */
+.app-bg-dark {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #0b1220,
+    #0f172a,
+    #111827
+  );
+  transition: 0.4s ease;
+}
+
+/* Soft overlay (keeps UI depth) */
+.app-bg::before,
+.app-bg-dark::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.12);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* =========================
+   🎨 TYPOGRAPHY
+========================= */
+
+.signin_prod {
+  font-family: 'Oswald', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #6d75dd;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.signup_prod {
+  font-family: 'Oswald', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.line_header {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #111827, #1e293b);
+  color: white;
+}
+
+/* =========================
+   🧾 CARDS
+========================= */
+
+.signin-card,
+.signup-card {
+  transition: 0.35s ease;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.signin-card:hover,
+.signup-card:hover {
+  transform: translateY(-6px) scale(1.02);
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.18),
+    0 4px 12px rgba(59,130,246,0.18);
+
+  background: linear-gradient(
+    135deg,
+    rgba(59,130,246,0.08),
+    rgba(168,85,247,0.08)
+  );
+}
+
+/* =========================
+   🖼️ PRODUCT IMAGE
+========================= */
+
+.product_img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+.product_img:hover {
+  transform: scale(1.06);
+}
+
+/* =========================
+   🔍 GLASS SEARCH (FIXED + CLEAN)
+========================= */
+
+.glass-search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 14px;
+}
+
+.glass-search {
+  width: 60%;
+  padding: 14px 22px;
+  border-radius: 35px;
+
+  border: 1px solid rgba(255,255,255,0.12);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  background: rgba(255,255,255,0.15);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.12);
+
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+/* Light text input fix */
+.glass-search::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.glass-search:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 4px rgba(59,130,246,0.25),
+    0 12px 40px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   🌙 DARK MODE
+========================= */
+
+.bg-dark {
+  background: linear-gradient(
+    135deg,
+    #0b1220,
+    #0f172a,
+    #111827
+  ) !important;
+}
+
+.text-light {
+  color: #f8fafc !important;
+}
+
+/* =========================
+   🖼️ HERO BANNER (OPTIMIZED SIZE)
+========================= */
+
+.hero-header {
+  position: relative;
+  width: 100%;
+  height: 150px; /* optimized */
+  overflow: hidden;
+
+  border-radius: 0 0 24px 24px;
+  margin-bottom: 18px;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.9);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.65),
+    rgba(15,23,42,0.4),
+    rgba(0,0,0,0.65)
+  );
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  text-align: center;
+}
+
+.hero-overlay h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.hero-overlay p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+/* =========================
+   🌀 SPINNING WHEEL
+========================= */
+
+.hero-wheel {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 70px;
+  height: 70px;
+
+  animation: spin 4s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes spin {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* =========================
+   🧠 LOADING STATE
+========================= */
+
+.loading-text {
+  text-align: center;
+  padding: 12px 18px;
+  margin: 15px auto;
+
+  width: fit-content;
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.03); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+
+/* =========================
+   📱 RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .hero-header {
+    height: 130px;
+  }
+
+  .hero-overlay h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero-overlay p {
+    font-size: 0.8rem;
+  }
+
+  .hero-wheel {
+    width: 55px;
+    height: 55px;
+    left: 10px;
+  }
+
+  .glass-search {
+    width: 90%;
+  }
+
+  .signin_prod,
+  .signup_prod {
+    font-size: 32px;
+  }
+}
